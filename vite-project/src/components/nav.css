@@ -1,0 +1,39 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.Header {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+    cursor: pointer;
+    margin-top: 100px;
+    position: static;
+    transition: 0.2s;
+  
+}
+.Header li  :hover{
+    transform: translateY(10px);
+}
+
+p{
+    width: 400px;
+    font-family: Arial, Helvetica, sans-serif;
+   margin-top: 50px;
+    border-radius: 10px;
+    
+    
+}
+.info{
+    background-color: chartreuse;
+    border: 5px solid;
+    width: 400px;
+    border-radius: 20px;
+    position: fixed;
+    margin-top: 150px;
+}
