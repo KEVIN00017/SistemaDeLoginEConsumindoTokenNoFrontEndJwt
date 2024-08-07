@@ -16,10 +16,9 @@ const app = Express();
 const router = Express.Router();
 
 
-app.use(Cors("http://localhost:3153"))
+app.use(Cors("http://localhost:5173"))
 app.use(Express.json());
 app.use("/", router);
-
 
 
 router.get("/:ID", GET);
@@ -31,6 +30,6 @@ router.delete("/:ID", Delete);
 
 
 app.listen(PORT, () => {
-    console.log("SERVER RUNNING!")
+    console.log("SERVER RUNNING!",`http://localhost:${PORT}`)
 });
 
