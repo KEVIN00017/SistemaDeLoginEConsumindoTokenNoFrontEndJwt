@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"
 import dotenv from "dotenv";
 import Model from "../connection/connection.js";
-
+import mongoose from "mongoose";
 dotenv.config();
 
 const Login = async (req, res) => {
@@ -12,6 +12,13 @@ const Login = async (req, res) => {
 
     const verification = await Model.findOne({ email: Email })
 
+    const cleanObjectId = (id) => {
+        if (typeof id === 'string') {
+            // Remove caracteres não hexadecimais
+            return id.replace(/[^0-9a-fA-F]/g, '');
+        }
+        return id;
+    };
     if (verification) {
         const SenhaBC = verification.senha;
         const verificationsenha = await bcrypt.compareSync(Senha, SenhaBC);
@@ -19,11 +26,13 @@ const Login = async (req, res) => {
 
         if (verificationsenha == true) {
 
-            const token = jwt.sign({ _id: Email._id }, process.env.SECRET)
+            const token = jwt.sign({ _id: verification._id }, process.env.SECRET)
+            const id = verification._id.toString();
+          
 
-            res.header("Authorization", token)
-
-            res.status(200).send({ message: "Usuario Logado Com Sucesso!", token });
+            res.status(200).send({ message: "Usuario Logado Com Sucesso!", token,id });
+          
+            
 
 
 

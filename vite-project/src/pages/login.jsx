@@ -24,12 +24,11 @@ function Login (){
         {
             headers: { 'Content-Type': 'application/json' }
           }).then(async(response)=>{
-            const nome=""
-            api.get(`/${Email}`,async(data)=>{
-                nome=await data.nome
-            });
-            localStorage.setItem("Authorization",JSON.stringify(response.data));
-            alert(`Logado Com Sucesso! Bem Vindo ${nome}`)
+            localStorage.setItem("Authorization",response.data.token);
+
+            localStorage.setItem("ID",JSON.stringify(response.data.id));
+
+            alert(`Logado Com Sucesso!`)
             navigate("/")
             
         }).catch((error)=>{

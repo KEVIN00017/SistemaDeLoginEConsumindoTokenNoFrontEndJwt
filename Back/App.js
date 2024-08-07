@@ -22,7 +22,7 @@ app.use("/", router);
 
 
 
-router.get("/:email", GET);
+router.get("/:ID", GET);
 router.post("/register", REGISTER);
 router.post("/login", Login);
 router.delete("/:ID", Delete);

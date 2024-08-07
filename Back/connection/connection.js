@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
+import Dotenv from "dotenv";
 
 
-dotenv.config();
+Dotenv.config();
 
 const ip=process.env.MONGO_IP
 

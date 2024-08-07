@@ -5,6 +5,7 @@ import './index.css'
 import {RouterProvider, createBrowserRouter} from "react-router-dom" 
 import Register from './pages/register.jsx'
 import Login from './pages/login.jsx'
+import Mypage from './pages/mypage.jsx'
 const router = createBrowserRouter([
   {
   path:"/" ,
@@ -21,7 +22,12 @@ const router = createBrowserRouter([
     path:"login" ,
     element:<Login />,
     errorElement:"Erro"
-    } 
+    },
+    {
+      path:"minhapagina" ,
+      element:<Mypage />,
+      errorElement:"Erro"
+      } 
   
 
   

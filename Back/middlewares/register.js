@@ -20,7 +20,7 @@ const REGISTER = async (req, res) => {
             res.status(200).send("Usuario Registrado Com Sucesso!")
             console.log("Registrado Com Sucesso!")
         } catch (error) {
-            console.error(error);
+            return
         }
     } else {
         res.status(404).send("Email já Registrado!");
